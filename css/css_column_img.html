@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSS3 Column Property</title>
+    <style>
+
+        @import url("https://fonts.googleapis.com/css?family=Josefin+Slab:400,700&display=swap");
+
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: 'Josefin Slab', serif;
+        }
+
+        .title{
+            color: #03A9F4;
+            margin: 30px auto;
+            text-align: center;
+            font-weight: bolder;
+            font-size: 3em;
+        }
+        .gallery{
+            columns: 3 300px;
+            column-gap: 30px;
+            width: 1000px;
+            margin: auto;
+        }
+        .gallery-img{
+            width: 100%;
+            margin-bottom: 30px;
+            border-radius: 5px;
+            transition: 0.5s;
+        }
+        .gallery-img:hover{
+            filter: contrast(150%);
+        }
+
+        @media screen and (max-width: 1024px) {
+            .gallery{
+                width: 90%;
+            }
+        }
+
+        @media screen and (max-width: 480px){
+            .gallery{
+                columns: 2 150px;
+                column-gap: 15px;
+            }
+            .gallery-img{
+                margin-bottom: 15px
+            ;
+            }
+        }
+
+
+
+    </style>
+</head>
+<body>
+
+<div class="title"><span style="color: #333333">Poe</span> Gallery</div>
+<div class="gallery">
+    <img src="images/poe-landscape-5.jpg" alt="" class="gallery-img">
+    <img src="images/poe-square-3.jpg" alt="" class="gallery-img">
+    <img src="images/poe-landscape-1.jpg" alt="" class="gallery-img">
+    <img src="images/poe-landscape-6.jpg" alt="" class="gallery-img">
+    <img src="images/poe-portrait-3.jpg" alt="" class="gallery-img">
+    <img src="images/poe-portrait-4.jpg" alt="" class="gallery-img">
+    <img src="images/poe-square-4.jpg" alt="" class="gallery-img">
+    <img src="images/poe-landscape-4.jpg" alt="" class="gallery-img">
+    <img src="images/poe-square-6.jpg" alt="" class="gallery-img">
+    <img src="images/poe-portrait-2.jpg" alt="" class="gallery-img">
+    <img src="images/poe-square-3.jpg" alt="" class="gallery-img">
+    <img src="images/poe-portrait-6.jpg" alt="" class="gallery-img">
+    <img src="images/poe-square-3.jpg" alt="" class="gallery-img">
+    <img src="images/poe-square-6.jpg" alt="" class="gallery-img">
+    <img src="images/poe-landscape-3.jpg" alt="" class="gallery-img">
+</div>
+
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSS Animation 2</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        .container{
+            width: 1000px;
+            margin: auto;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            height: 100vh;
+        }
+        .one{
+            width: 200px;
+            animation: toRight 1.5s;
+        }
+        .two{
+            width: 500px;
+            /*animation: toLeft 1.5s;*/
+        }
+
+        .two h1{
+            animation: toLeft 1.5s;
+            margin-bottom: 20px;
+        }
+        .two p{
+            animation: toLeft 2s;
+        }
+
+        #heart{
+            width: 100px;
+            position: fixed;
+            bottom: 100px;
+            margin: auto;
+            left: 50%;
+            animation: shake 0.3s infinite alternate;
+        }
+
+        @keyframes toRight {
+
+            from{
+                transform: translateX(-550px);
+            }
+            to{
+                transform: translateX(0px);
+            }
+
+        }
+
+        @keyframes toLeft {
+
+            from{
+                transform: translateX(550px);
+            }
+            to{
+                transform: translateX(0px);
+            }
+
+        }
+
+        @keyframes shake {
+
+            from{
+                transform: scale(1.2);
+            }
+            to{
+                transform: scale(1);
+            }
+
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="one">
+        <img src="images/poe-square-2.jpg" style="width: 100%" alt="">
+    </div>
+    <div class="two">
+        <h1>Poe Mamhi thar</h1>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid animi asperiores assumenda blanditiis cum cupiditate delectus doloremque ea eveniet fuga fugiat in ipsum, modi, necessitatibus quisquam sequi soluta tenetur ullam?
+        </p>
+    </div>
+</div>
+
+
+<img src="images/hands-and-gestures.svg" id="heart" alt="">
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .obj{
+            width: 50px;
+            height: 50px;
+            background-color: #333333;
+            border-radius: 50%;
+            border:5px solid #03A9F4;
+            border-color: #ffa45c #03A9F4;
+            transform: translate(900px,500px);
+            animation: test 6s linear;
+        }
+        @keyframes test {
+            0%{
+                transform: translate(-300px,-500px) rotate(0);
+            }
+            20%{
+                transform: translate(300px,500px) rotate(1000deg);
+            }
+            30%{
+                transform: translate(400px,250px) rotate(2000deg);
+            }
+            40%{
+                transform: translate(500px,500px) rotate(3000deg);
+            }
+            45%{
+                transform: translate(550px,350px) rotate(4000deg);
+            }
+
+            50%{
+                transform: translate(600px,500px) rotate(5000deg);
+            }
+
+            100%{
+                transform: translate(900px,500px) rotate(6500deg);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="obj"></div>
+
+</body>
+</html>

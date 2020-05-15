@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSS Shape</title>
+    <style>
+
+        div{
+            display: inline-block;
+        }
+
+        .square{
+            width: 50px;
+            height: 50px;
+            border: 2px solid pink;
+        }
+        .square-rounded{
+            border-radius: 5px;
+        }
+        .rect{
+            width: 150px;
+            height: 50px;
+            border: 2px solid pink;
+        }
+
+        .circle{
+            width: 50px;
+            height: 50px;
+            border: 2px solid pink;
+            border-radius: 50%;
+            background: #5d5d5a;
+        }
+        .img-circle{
+            width: 50px;
+            border-radius: 50%;
+        }
+        .bg-img{
+            background: url("images/poe-portrait-1.jpg");
+            background-size: 50px;
+        }
+        .triangle{
+            border: 50px solid #ffffff;
+            border-bottom-color: #03A9F4;
+        }
+        .triangle-2{
+            border: 50px solid #ffffff;
+            border-bottom-color: #03A9F4;
+            border-right-color: #03A9F4;
+        }
+        .env{
+            border: 50px solid #d5d5d5;
+            border-top-color: #03a9f4;
+            border-bottom-width: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>HTML, CSS Shapes</h1>
+
+    <div class="square"></div>
+    <div class="square square-rounded"></div>
+    <div class="rect"></div>
+    <hr>
+
+    <div class="circle"></div>
+    <img class="img-circle" src="images/poe-square-4.jpg">
+
+    <div class="circle bg-img"></div>
+
+    <hr>
+
+    <div class="triangle"></div>
+    <div class="triangle-2"></div>
+    <div class="env"></div>
+
+
+</body>
+</html>

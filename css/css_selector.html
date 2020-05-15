@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSS Selector</title>
+    <style>
+        .box{
+            width: 300px;
+            height: 100px;
+            background: pink;
+            border-radius: 15px;
+            position: relative;
+        }
+        .box-tail{
+            background: pink;
+            border: 20px solid white;
+            border-top-color: pink;
+            display: inline-block;
+            margin-left: 200px;
+        }
+        .box::after{
+            content: "";
+            position: absolute;
+            bottom: -50px;
+            left: 200px;
+            border: 25px solid white;
+            display: inline-block;
+            border-top-color: pink;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box"></div>
+
+
+</body>
+</html>

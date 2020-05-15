@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSS Animation 1</title>
+    <style>
+        .obj{
+            width: 100px;
+            height: 100px;
+            background-color: #03A9F4;
+            transition: 0.5s;
+            animation-name: first;
+            transform: translateX(150px);
+            /*animation-duration: 2s;*/
+            /*!*animation-delay: s;*!*/
+            /*animation-iteration-count: infinite;*/
+            /*animation-direction: alternate;*/
+            /*animation-timing-function: linear;*/
+            animation: first 2s linear 0s 3 alternate;
+        }
+
+
+        @keyframes first {
+            from{
+                transform: translateX(0px);
+            }
+            to{
+                transform: translateX(150px);
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="obj"></div>
+
+</body>
+</html>
