@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forever Alone</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        
+        .bg{
+           width: 100%;
+           
+            position: relative;
+           display: flex;
+           justify-content: center;
+
+           
+        }
+        .park{
+            width: 1200px;
+            height: 900px;
+          
+        }
+        .girl{
+            
+            position: absolute;
+            left: 500px;
+            bottom: 80px;
+            /* transform: translate(770px); */
+
+            /* animation: Girl 2s; */
+        }
+        .img_girl{
+            width: 200px;
+            height: 200px;
+        }
+        .boy{
+            position:absolute;
+            right: 500px;
+            bottom: 80px;
+            /* transform: translate(-680px); */
+            /* animation: Boy 2s; */
+
+        }
+        .img_boy{
+            width: 200px;
+           height: 200px;
+
+
+        }
+        .knife{
+            position: absolute;
+            transform: translate(00px,-550px);
+            /* animation: knife 4s  ; */
+            
+           
+           
+            
+
+        }
+        .img_knife{
+            width: 300px;
+            margin-left: 670px;
+        }
+
+
+        @keyframes Girl{
+            from{
+                transform: translate(0px);
+            }
+            to{
+                transform: translate(770px);
+            }
+        }
+        @keyframes Boy{
+            from{
+                transform: translate(700px);
+            }
+            to{
+                transform: translate(-680px);
+            }
+        }
+        @keyframes knife {
+           0%{
+                transform: translate(0px);
+            }
+            50%{
+                transform: translate(0px);
+            }
+            70%{
+                transform: translate(0,-550px)  ;
+            }
+            75%{
+                transform: translate(0,-550px) rotate(45deg);
+            }
+            80%{
+                transform: translate(0,-550px)  ;
+            }
+            85%{
+                transform: translate(0,-550px) rotate(45deg);
+            }
+            90%{
+               
+                transform: translate(0,-550px)
+            }
+            95%{
+                transform: translate(0,-550px) rotate(45deg);
+            }
+            100%{
+                transform: translate(0,-550px)
+            }
+    
+
+                
+            }
+            
+        
+
+
+     
+    </style>
+</head>
+<body>
+
+    <div class="bg">
+        <img src="images/Capture.PNG" class="park" alt="">
+    </div>
+
+    <div class="girl">
+        <img src="images/profile.png" class="img_girl" alt="">
+    </div>
+
+    <div class="boy">
+        <img src="images/people.png" class="img_boy" alt="">
+    </div>
+
+    <div class="knife">
+        <img src="images/oriental.png" class="img_knife" alt="">
+    </div>
+
+
+   
+    
+</body>
+</html>
