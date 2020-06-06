@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        table{
+            border-collapse: collapse;
+        }
+        tr,td{
+            width: 50px;
+            height: 50px;
+            border: 1px solid black;
+        }
+        .dark{
+            background: black;
+        }
+    </style>
+</head>
+<body>
+
+<table>
+    <tbody id="tbody"></tbody>
+</table>
+<script>
+    let tbody = document.getElementById("tbody");
+    for (let i=1;i<=8;i++){
+        let td="";
+        if(i%2 != 0){
+            //row ood
+            for(let x=1;x<=8;x++){
+                if(x%2 != 0){
+                    //col odd
+                    td += `<td></td>`;
+                }else{
+                    //col event
+                    td += `<td class="dark"></td>`;
+                }
+            }
+
+        }else{
+            //row event
+            for(let x=1;x<=8;x++){
+                if(x%2 != 0){
+                    //col odd
+                    td += `<td class="dark"></td>`;
+
+                }else{
+                    //col event
+                    td += `<td></td>`;
+
+                }
+            }
+        }
+
+
+        tbody.innerHTML += `<tr>${td}</tr>`;
+    }
+</script>
+</body>
+</html>
