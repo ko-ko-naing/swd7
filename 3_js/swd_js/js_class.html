@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JS Class</title>
+</head>
+<body>
+
+<script>
+
+    let arr = ["x",'y','z'];
+
+    let myObj = {
+      name : "Hein Htet Zan",
+      age : 26,
+      introduction:function () {
+        return `My name is ${this.name} and ${this.age} years old`;
+      }
+    };
+
+    //class expression
+    class Me{
+
+        name = "Hein Htet Zan";
+        age = 26;
+        //access modifier
+        #gf = "poe mamhi thar";//private property
+
+        //custom method
+        showGf(){
+            return `${this.#gf} is my GirlFriend.`;
+        }
+        introduction(){
+            return `My name is ${this.name} and ${this.age} years old`;
+        }
+    }
+
+
+    class Reg{
+        //magic method
+        constructor(name,age) {
+            this.name = name;
+            this.age = age;
+            console.log("this is constructor");
+        }
+
+        //prototype method
+        get showBdy(){
+            let currentYear = 2020;
+            return currentYear-this.age;
+        }
+
+        //static method
+        static Test(){
+            return "this is static method";
+        }
+
+    }
+
+
+</script>
+
+</body>
+</html>

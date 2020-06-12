@@ -5,161 +5,16 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Nav</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
-        *{
-            padding: 0;
-            margin: 0;
-            box-sizing: border-box;
-            font-family: 'Roboto', sans-serif;
-        }
-        body{
-            background: #f5f5f5;
-        }
+    <title>Document</title>
 
-        header{
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            width: 80%;
-            margin:auto;
-            background: #ffffff;
-            padding: 15px;
-            box-shadow: 0 0 15px rgba(0,0,0,0.05);
-            transition: 0.5s;
-        }
-        header:hover{
-            box-shadow: 0 0 15px rgba(0,0,0,0.15);
-        }
-        .brand{
-
-        }
-        .brand a{
-            font-size: 1.5rem;
-            font-weight: bolder;
-        }
-        .mobile-menu-btn{
-            display:none;
-            background: deepskyblue;
-            color: #ffffff;
-            padding: 10px 15px;
-            width: 50px;
-            border:none;
-            text-align: center;
-        }
-        .mobile-menu-btn:focus{
-            outline: none;
-        }
-        .nav{
-
-        }
-        .nav-list{
-            padding: 0;
-        }
-        .nav-list li{
-            list-style-type: none;
-            display: inline-block;
-        }
-        .nav-item{
-            background: deepskyblue;
-            color: #ffffff;
-            padding: 10px 15px;
-            width: 120px;
-            display: inline-block;
-            text-align: center;
-        }
-        header a{
-            color: deepskyblue;
-            text-decoration: none;
-        }
-
-        @media screen and (max-width: 480px) {
-            header{
-                width: 100%;
-                flex-wrap: wrap;
-            }
-            .mobile-menu-btn{
-                display: block;
-            }
-            .nav{
-                display: none;
-                width: 100%;
-            }
-            .nav-list li{
-                display: block;
-            }
-            .nav-item{
-                width: 100%;
-                margin-bottom: 10px;
-            }
-            .nav-item:first-child{
-                margin-top: 10px;
-            }
-        }
-
-        .show-nav{
-            display: block;
-            animation: showSlow 0.5s;
-            position: absolute;
-            z-index: -1;
-            top: 60px;
-            right: 0;
-            background: #ffffff;
-            padding: 10px;
-            box-shadow: 0 0 15px rgba(0,0,0,0.15);
-
-        }
-
-        @keyframes showSlow {
-            0%{
-                transform: translateY(-100px);
-
-            }
-            100%{
-                transform: translateY(0);
-            }
-        }
-
-    </style>
 </head>
 <body>
 
-<header>
-    <div class="brand">
-        <a href="">MMS IT</a>
-    </div>
-
-    <button class="mobile-menu-btn" onclick="navControl()">
-        M
-    </button>
-    <nav class="nav">
-        <ul class="nav-list">
-            <li>
-                <a class="nav-item" href="#">Home</a>
-            </li>
-            <li>
-                <a class="nav-item" href="#">About</a>
-            </li>
-            <li>
-                <a class="nav-item" href="#">Services</a>
-            </li>
-            <li>
-                <a class="nav-item" href="#">Gallery</a>
-            </li>
-            <li>
-                <a class="nav-item " href="#">Contact Us</a>
-            </li>
-        </ul>
-    </nav>
 
 
-</header>
 <script>
-    let nav = document.querySelector("nav");
-    function navControl() {
-        nav.classList.toggle("show-nav");
-    }
+
 </script>
+
 </body>
 </html>

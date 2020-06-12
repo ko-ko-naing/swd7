@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<!--<input type="file" id="upload" multiple>-->
+<!--<ul id="list"></ul>-->
+
+<form action="" id="test">
+    <input type="text" name="uname" >
+    <br>
+    <input type="text" name="password" >
+    <br>
+    <button>register</button>
+</form>
+
+<script>
+// document.getElementById("upload").addEventListener("change",function () {
+//     let upload = this.files;
+//     console.log(upload);
+//     for(x of upload){
+//         console.log(x);
+//         document.getElementById("list").innerHTML += `<li>${x.name}</li>`;
+//     }
+// });
+
+document.getElementById("test").addEventListener("submit",function (e) {
+    e.preventDefault();
+    let x = new FormData(this);
+    x.append("job","web developer");
+    x.append("status",false);
+
+    for(let pair of x.entries()) {
+        console.log(pair[0]+ ', '+ pair[1]);
+    }
+});
+
+
+</script>
+</body>
+</html>

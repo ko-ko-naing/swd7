@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            font-size: 25px;
+        }
+    </style>
+</head>
+<body>
+
+<p id="output"></p>
+
+<script>
+
+    let d = new Date();
+    let output = document.getElementById('output');
+    output.innerHTML = `${d.getHours()} : ${d.getMinutes()} : ${d.getSeconds()}`;
+    output.innerHTML += `<br> ${d.toDateString()}`;
+
+</script>
+</body>
+</html>
