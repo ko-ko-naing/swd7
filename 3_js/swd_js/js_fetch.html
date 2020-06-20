@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        .news{
+            width: 80%;
+            margin: 100px auto;
+            columns: 3 250px;
+        }
+        .card{
+            width: 100%;
+        }
+        .card-img{
+            width: 100%;
+        }
+        .title{
+
+        }
+        .author{
+
+        }
+        .description{
+
+        }
+    </style>
+</head>
+<body>
+<p id="con"></p>
+<div class="news">
+
+</div>
+<script>
+    let con = document.getElementById("con");
+    con.innerHTML = "loading";
+    fetch('http://newsapi.org/v2/everything?q=bitcoin&from=2020-05-15&sortBy=publishedAt&apiKey=7abefd5c5e0641fabd0d44ee463a94eb')
+        .then(response => response.json())
+        .then(data => {
+            // console.log(data)
+            con.innerHTML = "success";
+            let article = data.articles;
+            let news = document.querySelector(".news");
+            article.map(function (el,index) {
+                console.log(el);
+                news.innerHTML += `
+            <div class="card">
+                <img class="card-img" src="${el.urlToImage}" alt="">
+                <h4 class="title">${el.title}</h4>
+                <small class="author">${el.author}</small>
+                <p class="description">${el.description}</p>
+                <a href="${el.url}" class="read-more">Read More</a>
+            </div>
+        `;
+            });
+        })
+        .catch(function () {
+
+            console.log("you are in error");
+        })
+
+</script>
+</body>
+</html>
