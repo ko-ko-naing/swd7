@@ -50,8 +50,8 @@
 
     let m = ["C4","E4","B4","C4","E4","B4","C4","E4","B4","C4","E4","B4","C4","E4","B4","C4","E4","B4"];
 
-    function runMemory(arr,delay=1000){
-        let x = delay;
+    function runMemory(arr,delay=500){
+        let x = Number(delay);
         arr.map(function (el,index) {
             setTimeout(run,x,el);
             x += delay;
@@ -63,6 +63,30 @@
         current.pop();
         runMemory(current);
     }
+
+    document.addEventListener("keyup",function (e) {
+        console.log(e.keyCode);
+        let current = e.keyCode;
+        if(current == 65){
+            run('C4');
+        }else if(current == 83){
+            run('D4');
+        }else if(current == 68){
+            run("E4");
+        }else if(current == 70){
+            run("F4");
+        }else if(current == 74){
+            run("G4");
+        }else if(current == 75){
+            run("A4");
+        }
+        else if(current == 76){
+            run("B4");
+        }
+        else if(current == 186){
+            run("C5");
+        }
+    });
 
 
 

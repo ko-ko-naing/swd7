@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<input type="text" id="input">
+<br>
+<ul id="list"></ul>
+<script>
+
+    let input = document.getElementById("input");
+    let list = document.getElementById("list");
+
+    let notes = [];
+
+    if(localStorage.length>0){
+        notes = localStorage.getItem("notes").split(",");
+    }
+
+    function save(x) {
+
+        localStorage.setItem("notes",notes);
+
+
+    }
+
+    function addToList(x,y){
+        let li = document.createElement("li");
+        let text = document.createTextNode(x);
+        let button = document.createElement("button");
+        let btnText = document.createTextNode("delete");
+        button.setAttribute("onclick","del("+y+")");
+        button.appendChild(btnText);
+        li.appendChild(text);
+        li.appendChild(button)
+        list.appendChild(li);
+    }
+
+    function showList(){
+        list.innerHTML = "";
+        notes.map(function (el,index) {
+            addToList(el,index);
+        });
+    }
+
+    function del(x){
+        console.log(x);
+        notes.splice(x,1);
+        save();
+        showList();
+    }
+
+    document.addEventListener("keyup",function (e) {
+        if (e.keyCode == 13){
+            let note = input.value;
+            input.value = "";
+            notes.push(note);
+            save()
+            showList();
+            console.log(note);
+        }
+    });
+
+    showList();
+
+
+</script>
+</body>
+</html>

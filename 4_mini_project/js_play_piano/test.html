@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <input type="text" id="input">
+    <br>
+    <ul id="list"></ul>
+    <script>
+        let input = document.getElementById("input");
+        let list = document.getElementById("list");
+
+        let note = [];
+        if (localStorage.getItem("note").length) {
+            note = localStorage.getItem("note").split(",");
+        }
+
+        function createLi(x) {
+            let li = document.createElement("li");
+            let text = document.createTextNode(x);
+            li.appendChild(text);
+            list.appendChild(li);
+            input.value = "";
+
+        }
+
+        function showList() {
+            list.innerHTML = "";
+            console.log(localStorage);
+            for (x of note) {
+                createLi(x);
+            }
+        }
+
+        document.addEventListener("keyup", function (e) {
+            if (e.keyCode == 13) {
+                note.push(input.value)
+                localStorage.setItem(`note`, note);
+                showList()
+            }
+        })
+
+        showList();
+    </script>
+</body>
+
+</html>
