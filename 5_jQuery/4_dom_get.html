@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <p id="p" title="san kyi tar">this is p tag</p>
+
+    <input type="text" id="input">
+    <br>
+    <br>
+    <select name="" id="select">
+        <option value="mm">mm</option>
+        <option value="cn">cn</option>
+        <option value="kr">kr</option>
+    </select>
+    <br>
+    <br>
+    <button class="btn">click</button>
+    <script src="js/jquery.js"></script>
+    <script>
+        $(".btn").click(function () {
+            let d = $("#p").attr("title");
+            console.log(d);
+        });
+    </script>
+</body>
+</html>
