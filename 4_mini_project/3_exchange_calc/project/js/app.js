@@ -24,6 +24,11 @@ for (x in data.rates){
 
 function createTr(x){
 
+    let rowSpacer = document.getElementById("rowSpacer");
+    if (rowSpacer){
+        rowSpacer.remove();
+    }
+
     let tr = document.createElement("tr")
 
     x.map(function (el) {
@@ -54,15 +59,15 @@ document.getElementById("calc").addEventListener("submit",function (e) {
     let toText = to.options[to.selectedIndex].innerText;
     let first = x * y;
     let second = first/z;
-    let result = second.toFixed(2);
+    let resultNum = second.toFixed(2);
     let date = new Date().toLocaleString();
-    let arr = [date,fromText,toText,result];
+    let arr = [date,fromText,toText,resultNum];
     createTr(arr);
     store();
 
 
     //set state
-    result.innerHTML = result;
+    result.innerHTML = resultNum;
     input.value = "";
     input.focus();
     from.value = "";
@@ -72,6 +77,8 @@ document.getElementById("calc").addEventListener("submit",function (e) {
 (function () {
     if(localStorage.getItem("record")){
         historyList.innerHTML = localStorage.getItem("record");
+    }else{
+        historyList.innerHTML = `<tr id="rowSpacer" ><td colspan="4">There is no Record</td></tr>`;
     }
 })();
 

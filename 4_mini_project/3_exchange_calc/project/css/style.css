@@ -54,6 +54,7 @@ select:focus,input:focus,button:focus{
 .divider{
     background: var(--secondary);
     height: 5px;
+    border-radius: var(--br);
 }
 
 .app{
@@ -138,8 +139,11 @@ select:focus,input:focus,button:focus{
     padding: 8px;
     border-radius: var(--br);
 }
+.history tr{
+    background-color: var(--secondary-soft);
+}
 
-.history tr:nth-child(even){background-color: var(--secondary-soft); }
+/*.history tr:nth-child(even){background-color: var(--secondary-soft); }*/
 
 .history tr:hover {background-color: #ddd;}
 
@@ -157,3 +161,42 @@ select:focus,input:focus,button:focus{
     text-align: right;
 }
 
+#rowSpacer td{
+    text-align: center !important;
+}
+
+
+
+
+@media screen and (max-width: 480px) {
+    .app{
+        width: 96%;
+        margin: 30px auto;
+    }
+
+    .output{
+        flex-flow: column;
+        align-items: flex-end;
+    }
+    .brand-container{
+        width: 100%;
+    }
+
+    .calc{
+        flex-wrap: wrap;
+    }
+    .container{
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+    .from-container,.to-container{
+        width: 46%;
+    }
+    .input,.from,.to{
+       padding: 15px 10px;
+    }
+    .calc-btn{
+        padding: 15px 0;
+    }
+}
