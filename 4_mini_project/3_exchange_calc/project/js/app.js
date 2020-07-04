@@ -82,10 +82,10 @@ document.getElementById("calc").addEventListener("submit",function (e) {
     }
 })();
 
-function test() {
-    console.log(from.options[from.selectedIndex].innerText);
+function changeMode() {
+    document.body.classList.toggle("night-mode");
+    document.getElementById("modeIcon").classList.toggle("fa-sun");
 }
-
 
 
 

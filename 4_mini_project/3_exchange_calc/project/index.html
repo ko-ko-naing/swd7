@@ -31,10 +31,12 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="vendor/fontawesome/css/all.css">
     <link rel="stylesheet" href="vendor/animate_it/animate.min.css">
+    <link rel="stylesheet" href="css/night-mode.css">
+
 </head>
 <body>
 
-<section class="app">
+<section class="app animate__animated animate__slideInDown">
     <div class="output">
         <div class="brand-container">
             <img src="img/logo.svg" class="logo" alt="">
@@ -66,7 +68,7 @@
             <button class="calc-btn" id="calcBtn">Calculate</button>
         </div>
     </form>
-    <div class="history-container">
+    <div class="history-container ">
         <table class="history">
             <thead>
             <tr>
@@ -81,9 +83,11 @@
             </tbody>
         </table>
     </div>
-
 </section>
 
+<button class="mode-change animate__animated animate__slideInUp" onclick="changeMode()">
+    <i class="fas fa-moon" id="modeIcon"></i>
+</button>
 
 <script src="js/data.js"></script>
 <script src="js/app.js"></script>
