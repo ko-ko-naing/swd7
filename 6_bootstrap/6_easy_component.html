@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/all.css">
+</head>
+<body>
+
+<div class="container">
+
+    <div class="row my-5">
+        <h1>
+            Home <span class="badge badge-pill badge-danger">5 news</span>
+        </h1>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <div class="my-5">
+                <button class="btn btn-info btn-sm">Button</button>
+                <button class="btn btn-secondary">Button</button>
+                <button class="btn btn-warning btn-lg">Button</button>
+            </div>
+            <div class="my-5">
+                <button class="btn btn-primary" disabled>Disable</button>
+                <button class="btn btn-primary">
+                    <i class="fas fa-home"></i>
+                    Home
+                </button>
+                <button class="btn btn-primary active">
+                    <i class="fas fa-home"></i>
+                    Home
+                </button>
+                <button class="btn btn-primary">
+                    <div class="spinner-grow text-white spinner-grow-sm" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                    Loading
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="alert alert-danger">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam architecto aspernatur debitis error molestiae nemo pariatur quas, quasi quod rem sequi sunt ullam vel. Animi id nihil possimus reprehenderit voluptatem?
+        </div>
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+
+        <div class="spinner-border text-primary" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+
+        <div class="spinner-border text-danger spinner-border-sm" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+
+        <div class="spinner-grow" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+
+        <div class="spinner-grow text-primary spinner-grow-sm" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+
+            <ul class="list-group w-25">
+                <li class="list-group-item">List One</li>
+                <li class="list-group-item active">List Two</li>
+                <li class="list-group-item">List Three</li>
+            </ul>
+
+            <div class="list-group w-12">
+                <a href="#" class="list-group-item list-group-item-action active">
+                    Cras justo odio
+                </a>
+                <a href="#" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>
+                <a href="#" class="list-group-item list-group-item-action">Morbi leo risus</a>
+                <a href="#" class="list-group-item list-group-item-action">Porta ac consectetur ac</a>
+                <a href="#" class="list-group-item list-group-item-action disabled" tabindex="-1" aria-disabled="true">Vestibulum at eros</a>
+            </div>
+
+        </div>
+    </div>
+    <div class="row my-5">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item"><a href="#">Item</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Detail</li>
+            </ol>
+        </nav>
+    </div>
+
+    <div class="row my-5">
+        <div class="col-6">
+            <div class="progress mb-5">
+                <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <div class="progress progress-bar-striped progress-bar-animated mb-5">
+                <div class="progress-bar bg-success" role="progressbar" style="width: 75%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">75%</div>
+            </div>
+
+            <div class="progress">
+                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 70%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="my-5"></div>
+</div>
+
+
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+</body>
+</html>
