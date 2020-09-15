@@ -1,0 +1,14 @@
+li{
+  list-style-type: none;
+}
+.title{
+  color: tomato;
+}
+.mr{
+  margin-right: 10px;
+}
+.todo{
+  width: 300px;
+  margin: 100px auto;
+  text-align: center;
+}
