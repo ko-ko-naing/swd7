@@ -38,14 +38,14 @@ class App extends React.Component{
         return (
             <div className="todo">
                 <h1 className="title">My First React App</h1>
-                <div className="input-group">
-                    <input type="text" ref={this.messageRef} className="mr input-text"/>
-                    <button onClick={this.add} className="add-btn">Add</button>
+                <div className="">
+                    <input type="text" ref={this.messageRef} className="mr"/>
+                    <button onClick={this.add}>Add</button>
                 </div>
                 <ul>
                     {
                         this.state.list.map((i,index)=>{
-                           return <ListItem message={i} index={index}></ListItem>
+                            return <ListItem message={i} index={index}></ListItem>
                         })
                     }
                 </ul>
