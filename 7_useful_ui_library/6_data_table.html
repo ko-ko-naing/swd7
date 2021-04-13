@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="vendor/data_table/jquery.dataTables.min.css">
 </head>
 <body>
-<table id="example" class="display" style="width:100%">
+<table id="example" class="display">
     <thead>
     <tr>
         <th>Name</th>
@@ -492,9 +492,15 @@
 <script src="vendor/jquery-3.3.1.min.js"></script>
 <script src="vendor/data_table/jquery.dataTables.min.js"></script>
 <script>
+    document.querySelectorAll("tr").forEach(index => {
+        let dateText = index.children[4];
+        let dateArr = dateText.innerHTML.split("/");
+        dateArr.reverse();
+        dateText.innerHTML = dateArr.join(" / ");
+    });
+    $.fn.dataTable.moment('DD/MM/YYYY');
     $("table").dataTable({
-        "paging":   true,
-        "ordering": false,
+        "order": [[ 4, "asc" ]]
     });
 </script>
 </body>

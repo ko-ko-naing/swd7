@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Try Catch</title>
+</head>
+<body>
+    
+    <script>
+        //try catch finally throw
+
+        let x = {name:"hh",age:26,job:null};
+
+        try{
+
+            console.log("code start");
+            console.log("code start");
+            console.log("code start");
+            if(x.job){
+                console.log(x);
+            }else{
+                throw new SyntaxError("no job");
+            }
+            // aa();
+            console.log("code end");
+
+        }catch(err){
+
+            console.error(err.message);
+
+        }finally{
+            console.log("It is finally")
+        }
+        
+
+        
+
+    </script>
+
+</body>
+</html>

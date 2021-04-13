@@ -8,7 +8,7 @@ class ListItem extends React.Component{
         return (
 
             <li>
-                [{this.props.index}]
+                [{this.props.index}] 
                 {this.props.message}
             </li>
         )
