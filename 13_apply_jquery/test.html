@@ -6,52 +6,295 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.css">
-    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
     <style>
-
-        .width-50{
-            width: 50px;
+        .item-card{
+            border:none !important;
+            padding-top: 20px !important;
         }
 
-        .width-300{
-            width: 300px;
+        .item-card:hover img{
+            transform: scale(1.1) rotate(-10deg);
         }
 
-        .width-150{
-            width: 150px;
+        .item-card img{
+            height: 150px;
+            width: auto;
+            margin-left: 1rem;
+            margin-bottom: -50px;
+            transition: 0.5s;
         }
 
-        td{
-            vertical-align: middle !important;
+        .spacer-50{
+            height: 50px;
         }
+
+
+        .item-in-cart img{
+            height: 50px;
+            width: auto !important;
+        }
+
+        .overflow-scroll{
+            overflow: scroll !important;
+        }
+
 
     </style>
 </head>
 <body>
 
 
-<div class="container">
+<div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-12 col-lg-10">
-            <div class="my-5">
-                <h3 class="text-primary ">Voucher App ( Apply jQuery )</h3>
-                <p class="text-black-50 mb-5">Bootstrap & jQuery</p>
-            </div>
+            <div class="row">
+                <div class="col-8 border-right">
+                    <div class="vh-100 overflow-scroll">
+                        <div class="mt-3 mb-5 d-flex justify-content-between align-items-end">
+                            <div class="brand-group">
+                                <h4 class="text-primary font-weight-bold mb-0">My Shop</h4>
+                                <small class="text-black-50">Bootstrap & jQuery</small>
+                            </div>
+                            <div class="">
+                                <div class="form-row px-4">
+                                    <div class="form-group mb-0 mr-2">
+                                        <input type="text" id="search" class="form-control" placeholder="Search Item">
+                                    </div>
+                                    <div class="form-group mb-0">
+                                        <select name="" id="category" class="custom-select mr-2">
+                                            <option value="0">All Category</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-columns" id="shop">
 
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="vh-100 overflow-scroll">
+                        <div class="mt-3 mb-5 d-flex justify-content-between align-items-end">
+                            <div class="brand-group">
+                                <h4 class="text-primary font-weight-bold mb-0">My Cart</h4>
+                                <small class="text-black-50">Added items to Cart</small>
+                            </div>
+                            <div class="">
+                                <h4 >
+                                    <span class="count"></span>
+                                    <i class="fas fa-shopping-cart text-primary"></i>
+                                </h4>
+                            </div>
+                        </div>
+                        <div id="cart">
+
+                        </div>
+                        <div class="cart-item-total position-sticky bg-white" style="bottom: 0px">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
 
-<script src="node_modules/jquery/dist/jquery.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 <script>
 
+    let items = [];
+
+    function short(str,max=50){
+        if(str.length > max){
+            return str.substring(0,max)+" ..... "
+        }
+        return str;
+    }
+
+
+    function showItem(x){
+        $("#shop").empty();
+        x.map(item => {
+
+            $("#shop").append(`
+                <div class="card item-card" >
+                     <img src="${item.image}" class="card-img-top" alt="">
+                     <div class="card-body border">
+                        <div class="spacer-50"></div>
+                         <p class="card-title text-nowrap overflow-hidden text-primary">${item.title}</p>
+                         <p class="small text-secondary">
+                            ${short(item.description,120)}
+                         </p>
+                         <div class="d-flex justify-content-between align-items-end">
+                            <span class="font-weight-bold">$ ${item.price}</span>
+                            <button class="btn btn-sm btn-outline-primary add-to-cart" data-id="${item.id}">Add <i class="fas fa-cart-plus"></i></button>
+                         </div>
+                     </div>
+                 </div>
+            `);
+        })
+    }
+
+    function cartItemTotal(){
+        let addedItem = $(".item-in-cart-cost");
+        $(".count").html(addedItem.length);
+        if(!addedItem.length){
+            return $(".cart-item-total").html(`There is no item in cart`);
+        }
+
+        let total =  $(".item-in-cart-cost").toArray().map(el=>el.innerHTML).reduce((x,y)=>parseFloat(x)+parseFloat(y))
+        return $(".cart-item-total").html(`
+            <div class="d-flex justify-content-between align-items-end p-3">
+                <h4>Total Cost</h4>
+                <h4 class="font-weight-bold">$ ${Number(total).toFixed(2)} </h4>
+            </div>
+        `);
+    }
+
+    $.get("https://fakestoreapi.com/products/categories",function (data) {
+        data.map(el=>$("#category").append(`<option value="${el}">${el}</option>`));
+    })
+
+
+    $.get("https://fakestoreapi.com/products/",function (data) {
+        items = data;
+        showItem(items);
+    })
+
+    $("#search").keyup(function () {
+        let word = $(this).val().toLowerCase();
+        console.log(word);
+        // $(".card").filter(function () {
+        //     $(this).toggle($(this).text().toLowerCase().indexOf(word) > -1)
+        // })
+        if(word.length > 1){
+
+            let filterItems = items.filter( el=> {
+                if(el.title.toLowerCase().indexOf(word) > -1 || el.description.toLowerCase().indexOf(word) > -1 || el.price == word ){
+                    return el;
+                }
+            })
+
+            showItem(filterItems);
+
+        }else{
+
+            showItem(items);
+
+        }
+
+    })
+
+    $("#category").on("change",function () {
+        let selectedCategory = $(this).val();
+        if(selectedCategory != 0){
+            let filterItems = items.filter( el=> {
+                if(el.category === selectedCategory){
+                    return el;
+                }
+            })
+
+            showItem(filterItems);
+        }else{
+
+            showItem(items);
+        }
+    })
 
 
 
+    $("#shop").delegate(".add-to-cart","click",function () {
+        let id = $(this).attr("data-id");
+        if(!$("[cart-item-id]").toArray().map(el => el.getAttribute('cart-item-id')).includes(id)){
+
+            let currentAddedItem = items.filter(item=>item.id==id)[0];
+
+            $("#cart").append(
+                `
+            <div class="border-bottom item-in-cart" cart-item-id="${currentAddedItem.id}">
+                 <div class="card-body">
+                      <div class="d-flex justify-content-between align-items-end mb-3">
+                          <img src="${currentAddedItem.image}" alt="">
+                          <button class="btn btn-outline-danger btn-sm mb-0 remove-from-cart">
+                            <i class="fas fa-trash-alt"></i>
+                          </button>
+                      </div>
+
+                     <p class="card-title">${currentAddedItem.title}</p>
+
+                     <div class="d-flex justify-content-between align-items-end">
+                        <div class="form-row">
+                            <button class="btn btn-sm btn-outline-primary sub-quantity" data-id="${currentAddedItem.id}">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                            <input type="number" class="form-control w-25 mx-2 quantity" min="1" value="1" unit-price="${currentAddedItem.price}">
+                            <button class="btn btn-sm btn-outline-primary add-quantity" data-id="${currentAddedItem.id}">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                        <span class="font-weight-bold item-in-cart-cost">${currentAddedItem.price}</span>
+                     </div>
+                 </div>
+             </div>
+            `
+            );
+        }else{
+            alert("Already Added");
+        }
+        cartItemTotal();
+    });
+
+    $("#cart").delegate(".remove-from-cart","click",function () {
+        $(this).parentsUntil("#cart").remove();
+        cartItemTotal();
+    })
+
+    cartItemTotal();
+
+    $("#cart").delegate(".add-quantity","click",function () {
+
+        let currentQuantity = $(this).siblings(".quantity").val();
+        let uniquePrice = $(this).siblings(".quantity").attr("unit-price");
+        let newQuantity = Number(currentQuantity)+1;
+        let newCost = newQuantity * uniquePrice;
+
+        $(this).siblings(".quantity").val(newQuantity);
+        $(this).parent().siblings(".item-in-cart-cost").html(newCost.toFixed(2));
+        cartItemTotal()
+    });
+
+    $("#cart").delegate(".sub-quantity","click",function () {
+        let currentQuantity = $(this).siblings(".quantity").val();
+        let uniquePrice = $(this).siblings(".quantity").attr("unit-price");
+        if(currentQuantity>1){
+            let newQuantity = Number(currentQuantity)-1;
+            let newCost = newQuantity * uniquePrice;
+
+            $(this).siblings(".quantity").val(newQuantity);
+            $(this).parent().siblings(".item-in-cart-cost").html(newCost.toFixed(2));
+        }
+        cartItemTotal()
+    });
+
+    $("#cart").delegate(".quantity","change keyup",function () {
+        let currentQuantity = $(this).val();
+        let uniquePrice = $(this).attr("unit-price");
+        if(currentQuantity>1){
+            let newQuantity = Number(currentQuantity)-1;
+            let newCost = newQuantity * uniquePrice;
+
+            $(this).val(newQuantity);
+            $(this).parent().siblings(".item-in-cart-cost").html(newCost.toFixed(2));
+        }else{
+            alert("quantity must be greater than 0");
+        }
+        cartItemTotal()
+    });
 
 </script>
-
 </body>
 </html>
