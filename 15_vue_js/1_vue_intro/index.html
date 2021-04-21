@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue Introduction</title>
+    <style>
+        h4{
+            color: green;
+        }
+    </style>
+</head>
+<body>
+
+
+<div id="app">
+
+    <h4>{{ title }}</h4>
+    <ul>
+<!--        looping-->
+        <li v-for="item in items">
+            <button @click="item.stock += 1">Add</button>
+            <input type="number" v-model.number="item.stock"> |
+            {{ item.name }}
+<!--            conditional statement-->
+            <b v-if="item.stock === 0">Out of Stock</b>
+        </li>
+        <p>Total Stock : {{ getTotalStock }}</p>
+        <hr>
+        <input type="text" v-model="itemName">
+        <input type="text" v-model.number="itemStock">
+        <button @click="add()">Add</button>
+    </ul>
+
+</div>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<script>
+
+    //dom
+    // document.querySelector("h4").innerHTML = ""
+
+    // virtual dom
+    // reactive
+
+    //vue instance
+    let app = new Vue({
+
+        //select element
+        el:"#app",
+
+        data : {
+
+            message:"Hello vue",
+            title : "Mini Inventory System",
+            items : [
+                {id:1,name:"book",stock:5},
+                {id:2,name:"pen",stock:0},
+                {id:3,name:"ruler",stock:3}
+            ],
+            itemName : "",
+            itemStock : ""
+
+
+        },
+        computed : {
+
+            getTotalStock(){
+                return this.items.reduce( (sum,el) => sum + el.stock , 0 )
+            }
+
+        },
+        methods : {
+
+            add(){
+
+                let newItem = {
+                    id : this.items.length+1,
+                    name : this.itemName,
+                    stock : this.itemStock
+                }
+
+                this.items.push(newItem)
+
+
+            }
+
+        }
+
+    });
+
+</script>
+
+</body>
+</html>
