@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="app.css">
+</head>
+<body>
+
+<p>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad architecto distinctio eum inventore modi nihil quod sapiente tempore velit voluptatum. Amet assumenda dignissimos dolorum ducimus minima nam quo? Ipsa, labore.
+</p>
+
+<div id="app">
+<!--    {{ js expression }}-->
+    <h3>{{ name.split(" ").join(" - ") }}</h3>
+    <h3>{{ hungry ? "ဗိုက်ဆာတယ်" : "မဆာပါဘူးဗျာ" }}</h3>
+    <h1 :style="{fontSize:fz+'px',color:fc}">
+        I'm <span :title="name.split('').join('-')">HHZ</span>
+    </h1>
+
+    <input type="text" :disabled="hungry">
+
+    <hr>
+
+    <img :src="poeImg1" :class="{rotate:age>18}" alt="">
+
+</div>
+
+<script src="vue.js"></script>
+<script>
+
+
+
+    //vue instance
+    let app = new Vue({
+        el : "#app",
+        data : {
+            name : "hein htet zan",
+            hungry : true,
+            poeImg1 : "img/poe-portrait-1.jpg",
+            rotate:"rotate",
+            moveLeft : "moveLeft",
+            age:26,
+            fz:100,
+            fc : "red"
+        }
+    });
+</script>
+</body>
+</html>

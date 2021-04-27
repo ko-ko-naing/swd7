@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue Todo Project</title>
+    <link rel="stylesheet" href="./node_modules/@fortawesome/fontawesome-free/css/all.css">
+    <link rel="stylesheet" href="./node_modules/animate.css/animate.css">
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+
+    <style>
+        .done{
+            text-decoration: line-through !important;
+            animation: 0.5s shakeX;
+        }
+        .created{
+            animation: 0.5s fadeInDown;
+        }
+        .deleted{
+            animation: 0.5s zoomOut;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container" id="app">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-4">
+            <div class="my-5">
+                <h2 class="text-center mb-4">Vue Js Todo List</h2>
+
+                <div class="form-row mb-3">
+                    <div class="col-10">
+                        <input type="text" class="form-control form-control-lg" v-model="newMessage" @keyup.enter="create()" placeholder="Say Something">
+                    </div>
+                    <div class="col-2">
+                        <button class="btn btn-primary btn-lg w-100" @click="create()">
+                            <i class="fas fa-plus-circle"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-between">
+                    <p class="mb-0 font-weight-bold">Job List{{ lists.length > 1 ? "s" : "" }}</p>
+                    <p v-if="lists.length>0 && doneTotal===lists.length" class="badge badge-success badge-pill">
+                        All Done <i class="fas fa-check-circle"></i>
+                    </p>
+                    <p v-else class="badge badge-primary badge-pill">
+                        Done {{ doneTotal }}
+                    </p>
+                </div>
+
+                <ul class="list-group">
+                    <li v-if="lists.length === 0" class="list-group-item text-center">
+                        There is no job 🥺
+                    </li>
+                    <li v-for="list in lists" :key="list.id" @dblclick="list.isEdit = true" :class="['list-group-item d-flex justify-content-between align-items-center created',{'deleted':list.isDelete}]">
+                        <input v-if="list.isEdit" type="text" v-model="list.message" @keyup.enter="list.isEdit = false" class="form-control form-control-lg mr-2">
+                        <div v-else class="custom-control custom-checkbox">
+                            <input type="checkbox" v-model="list.isDone" class="custom-control-input" :id="'customCheck'+list.id">
+                            <label :class="['custom-control-label',{'done':list.isDone}]" :for="'customCheck'+list.id" >{{ list.message }}</label>
+                        </div>
+                        <i class="fas fa-trash-alt text-primary" @click="[list.isDelete=true,del(list.id)]"></i>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="vue.js"></script>
+<script>
+
+let app = new Vue({
+    el : "#app",
+    data : {
+        currentId : 0,
+        newMessage : "",
+        lists : [
+
+        ]
+    },
+    computed :{
+        doneTotal(){
+            return this.lists.filter(el=>el.isDone === true).length
+        }
+    },
+    methods : {
+        create(){
+            this.currentId++
+            this.lists.push({
+                id: this.currentId,
+                message : this.newMessage,
+                isDone : false,
+                isEdit : false,
+                isDelete : false,
+            });
+            this.newMessage = "";
+        },
+        del(x){
+            // if(confirm('Are U Sure to delete ?')){
+            setTimeout(()=>this.lists = this.lists.filter(el => el.id !== x),500)
+            // }
+        }
+    }
+})
+
+</script>
+</body>
+</html>

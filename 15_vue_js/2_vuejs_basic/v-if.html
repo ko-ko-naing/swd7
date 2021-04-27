@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Conditional Rendering</title>
+</head>
+<body>
+
+<div id="test">
+
+    <h1>{{ randomNumber }}</h1>
+    <h3 v-if="randomNumber>5">Vue is awesome 😊</h3>
+
+    <div v-if="type === 'A'">
+        A
+    </div>
+    <div v-else-if="type === 'B'">
+        B
+    </div>
+    <div v-else-if="type === 'C'">
+        C
+    </div>
+    <div v-else>
+        Not A/B/C
+    </div>
+
+<!--    <h3 v-else>Sorry</h3>-->
+<button @click="run()">Click</button>
+</div>
+<script src="vue.js"></script>
+<script>
+
+    let test = new Vue({
+        el : "#test",
+        data : {
+            randomNumber : 0,
+            type : "A"
+        },
+        methods : {
+
+            run() {
+                this.randomNumber = Math.random().toFixed(1) * 10;
+            }
+
+        }
+
+    })
+
+</script>
+</body>
+</html>

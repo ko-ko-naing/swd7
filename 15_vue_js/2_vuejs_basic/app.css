@@ -1,0 +1,11 @@
+img{
+    height: 300px;
+}
+
+.rotate{
+    transform: rotate(10deg);
+}
+
+.moveLeft{
+    margin-left: 100px;
+}
