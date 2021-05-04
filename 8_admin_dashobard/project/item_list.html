@@ -6,7 +6,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Admin Dashboard</title>
-    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/app.css">
     <link rel="stylesheet" href="vendor/feather-icons-web/feather.css">
     <link rel="stylesheet" href="vendor/data_table/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="css/style.css">
@@ -29,260 +29,180 @@
                 </button>
             </div>
             <div class="nav-menu">
+
                 <ul>
+                    <li class="menu-spacer"></li>
+
+
                     <li class="menu-item">
-                        <a href="dashboard.html" class="menu-item-link ">
+                        <a href="dashboard.html" class="menu-item-link">
                             <span>
                                 <i class="feather-home"></i>
                                 Dashboard
                             </span>
                         </a>
                     </li>
+                    <li class="menu-item">
+                        <a href="plane.html" class="menu-item-link">
+                            <span>
+                                <i class="feather-shopping-bag"></i>
+                                Today Orders
+                            </span>
+                            <span class="badge badge-pill bg-white shadow-sm text-primary">15</span>
+
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="plane.html" class="menu-item-link">
+                            <span>
+                                <i class="feather-grid"></i>
+                                Recent Items
+                            </span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="plane.html" class="menu-item-link">
+                            <span>
+                                <i class="feather-pie-chart"></i>
+                                Data Analysis
+                            </span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="plane.html" class="menu-item-link">
+                            <span>
+                                <i class="feather-file"></i>
+                                Plane Page
+                            </span>
+                        </a>
+                    </li>
 
                     <li class="menu-spacer"></li>
 
 
-                    <li class="menu-title">
-                        <span>Manage Test</span>
-                    </li>
-                    <li class="menu-item">
-                        <a href="#" class="menu-item-link">
-                            <span>
-                                <i class="feather-plus-circle"></i>
-                                Add Test
-                            </span>
-                        </a>
-                    </li>
-                    <li class="menu-item">
-                        <a href="#" class="menu-item-link">
-                            <span>
-                                <i class="feather-list"></i>
-                                Test List
-                            </span>
-                            <span class="badge badge-pill bg-white shadow-sm text-primary p-1">12</span>
-                        </a>
-                    </li>
-                    <li class="menu-spacer"></li>
-                    <li class="menu-title">
-                        <span>Manage Test</span>
-                    </li>
-                    <li class="menu-item">
-                        <a href="#" class="menu-item-link">
-                            <span>
-                                <i class="feather-plus-circle"></i>
-                                Add Test
-                            </span>
-                        </a>
-                    </li>
-                    <li class="menu-item">
-                        <a href="#" class="menu-item-link">
-                            <span>
-                                <i class="feather-list"></i>
-                                Test List
-                            </span>
-                            <span class="badge badge-pill bg-white shadow-sm text-primary p-1">12</span>
-                        </a>
-                    </li>
-                    <li class="menu-spacer"></li>
-                    <li class="menu-title">
-                        <span>Manage Test</span>
-                    </li>
-                    <li class="menu-item">
-                        <a href="#" class="menu-item-link">
-                            <span>
-                                <i class="feather-plus-circle"></i>
-                                Add Test
-                            </span>
-                        </a>
-                    </li>
-                    <li class="menu-item">
-                        <a href="#" class="menu-item-link">
-                            <span>
-                                <i class="feather-list"></i>
-                                Test List
-                            </span>
-                            <span class="badge badge-pill bg-white shadow-sm text-primary p-1">12</span>
-                        </a>
-                    </li>
-                    <li class="menu-spacer"></li>
-                    <li class="menu-title">
-                        <span>Manage Test</span>
-                    </li>
-                    <li class="menu-item">
-                        <a href="#" class="menu-item-link">
-                            <span>
-                                <i class="feather-plus-circle"></i>
-                                Add Test
-                            </span>
-                        </a>
-                    </li>
-                    <li class="menu-item">
-                        <a href="#" class="menu-item-link">
-                            <span>
-                                <i class="feather-list"></i>
-                                Test List
-                            </span>
-                            <span class="badge badge-pill bg-white shadow-sm text-primary p-1">12</span>
-                        </a>
-                    </li>
-                    <li class="menu-spacer"></li>
-                    <li class="menu-title">
-                        <span>Manage Test</span>
-                    </li>
-                    <li class="menu-item">
-                        <a href="#" class="menu-item-link">
-                            <span>
-                                <i class="feather-plus-circle"></i>
-                                Add Test
-                            </span>
-                        </a>
-                    </li>
-                    <li class="menu-item">
-                        <a href="#" class="menu-item-link">
-                            <span>
-                                <i class="feather-list"></i>
-                                Test List
-                            </span>
-                            <span class="badge badge-pill bg-white shadow-sm text-primary p-1">12</span>
-                        </a>
-                    </li>
-                    <li class="menu-spacer"></li>
-
 
 
                     <li class="menu-title">
-                        <span>Manage Item</span>
+                        <span>Item Management</span>
                     </li>
                     <li class="menu-item">
                         <a href="item_add.html" class="menu-item-link">
                             <span>
                                 <i class="feather-plus-circle"></i>
-                                Add Item
+                                Create New Item
                             </span>
                         </a>
                     </li>
                     <li class="menu-item">
                         <a href="item_list.html" class="menu-item-link active">
                             <span>
-                                <i class="feather-list"></i>
-                                Item List
+                                <i class="feather-server"></i>
+                                Item Lists
                             </span>
-                            <span class="badge badge-pill bg-white shadow-sm text-primary p-1">15</span>
+                            <span class="badge badge-pill bg-white shadow-sm text-primary">57</span>
                         </a>
                     </li>
                     <li class="menu-spacer"></li>
 
                     <li class="menu-title">
-                        <span>Manage Test</span>
+                        <span>User Management</span>
                     </li>
                     <li class="menu-item">
-                        <a href="#" class="menu-item-link">
+                        <a href="" class="menu-item-link">
                             <span>
-                                <i class="feather-plus-circle"></i>
-                                Add Test
+                                <i class="feather-user-plus"></i>
+                                Create User
                             </span>
                         </a>
                     </li>
                     <li class="menu-item">
-                        <a href="#" class="menu-item-link">
+                        <a href="item_list.html" class="menu-item-link">
                             <span>
-                                <i class="feather-list"></i>
-                                Test List
+                                <i class="feather-users"></i>
+                                Manage User
                             </span>
-                            <span class="badge badge-pill bg-white shadow-sm text-primary p-1">12</span>
+                            <span class="badge badge-pill bg-white shadow-sm text-primary">100</span>
                         </a>
                     </li>
-                    <li class="menu-spacer"></li>
-                    <li class="menu-title">
-                        <span>Manage Test</span>
-                    </li>
                     <li class="menu-item">
-                        <a href="#" class="menu-item-link">
+                        <a href="" class="menu-item-link">
                             <span>
-                                <i class="feather-plus-circle"></i>
-                                Add Test
+                                <i class="feather-user-minus"></i>
+                                Baned User
                             </span>
                         </a>
                     </li>
                     <li class="menu-item">
-                        <a href="#" class="menu-item-link">
+                        <a href="" class="menu-item-link">
                             <span>
-                                <i class="feather-list"></i>
-                                Test List
+                                <i class="feather-bar-chart"></i>
+                                User Analysis
                             </span>
-                            <span class="badge badge-pill bg-white shadow-sm text-primary p-1">12</span>
-                        </a>
-                    </li>
-                    <li class="menu-spacer"></li>
-                    <li class="menu-title">
-                        <span>Manage Test</span>
-                    </li>
-                    <li class="menu-item">
-                        <a href="#" class="menu-item-link">
-                            <span>
-                                <i class="feather-plus-circle"></i>
-                                Add Test
-                            </span>
-                        </a>
-                    </li>
-                    <li class="menu-item">
-                        <a href="#" class="menu-item-link">
-                            <span>
-                                <i class="feather-list"></i>
-                                Test List
-                            </span>
-                            <span class="badge badge-pill bg-white shadow-sm text-primary p-1">12</span>
-                        </a>
-                    </li>
-                    <li class="menu-spacer"></li>
-                    <li class="menu-title">
-                        <span>Manage Test</span>
-                    </li>
-                    <li class="menu-item">
-                        <a href="#" class="menu-item-link">
-                            <span>
-                                <i class="feather-plus-circle"></i>
-                                Add Test
-                            </span>
-                        </a>
-                    </li>
-                    <li class="menu-item">
-                        <a href="#" class="menu-item-link">
-                            <span>
-                                <i class="feather-list"></i>
-                                Test List
-                            </span>
-                            <span class="badge badge-pill bg-white shadow-sm text-primary p-1">12</span>
-                        </a>
-                    </li>
-                    <li class="menu-spacer"></li>
-                    <li class="menu-title">
-                        <span>Manage Test</span>
-                    </li>
-                    <li class="menu-item">
-                        <a href="#" class="menu-item-link">
-                            <span>
-                                <i class="feather-plus-circle"></i>
-                                Add Test
-                            </span>
-                        </a>
-                    </li>
-                    <li class="menu-item">
-                        <a href="#" class="menu-item-link">
-                            <span>
-                                <i class="feather-list"></i>
-                                Test List
-                            </span>
-                            <span class="badge badge-pill bg-white shadow-sm text-primary p-1">12</span>
                         </a>
                     </li>
                     <li class="menu-spacer"></li>
 
 
+                    <li class="menu-title">
+                        <span>Inventory</span>
+                    </li>
+                    <li class="menu-item">
+                        <a href="" class="menu-item-link">
+                            <span>
+                                <i class="feather-file-plus"></i>
+                                Create New Stock
+                            </span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="" class="menu-item-link">
+                            <span>
+                                <i class="feather-list"></i>
+                                All Stock
+                            </span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="item_list.html" class="menu-item-link">
+                            <span>
+                                <i class="feather-file-minus"></i>
+                                Out of Stock
+                            </span>
+                            <span class="badge badge-pill bg-white shadow-sm text-primary">16</span>
+                        </a>
+                    </li>
 
+                    <li class="menu-item">
+                        <a href="" class="menu-item-link">
+                            <span>
+                                <i class="feather-bar-chart-2"></i>
+                                Stock Analysis
+                            </span>
+                        </a>
+                    </li>
+                    <li class="menu-spacer"></li>
+
+                    <li class="menu-title">
+                        <span>Your Profile</span>
+                    </li>
+                    <li class="menu-item">
+                        <a href="" class="menu-item-link">
+                            <span>
+                                <i class="feather-lock"></i>
+                                Change Password
+                            </span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="" class="menu-item-link">
+                            <span>
+                                <i class="feather-user-check"></i>
+                                Edit Profile
+                            </span>
+                        </a>
+                    </li>
 
                 </ul>
-
             </div>
 
         </div>
